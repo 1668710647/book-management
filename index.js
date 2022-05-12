@@ -7,6 +7,7 @@ function getBookList() {
                 rows.push("<tr><td>"+ item.id +"</td><td>"+ item.bookname +"</td><td>"+ item.author +"</td><td>"+ item.publisher +"</td><td><button class='deletebook' data-id='"+ item.id +"'>删除</button></td></tr>")
             })
             $("#tb").empty().append(rows.join(""))
+            //alert(res.msg);
         } else {
             return alert("获取图书失败");
         }
@@ -26,6 +27,22 @@ function delBook(){
 }
 //添加图书
 function addBook(){
+    var bookname = $("#iptBookname").val();
+    var author = $("#iptAuthor").val();
+    var publisher = $("#iptPublisher").val();
+    if (bookname.length <= 0 || author.length <= 0 || publisher.length <= 0) {
+        return alert("请补全图书信息");
+    } else {
+        $.post("http://www.liulongbin.top:3006/api/addbook",{bookname:bookname,author:author,publisher:publisher},function(res) {
+            console.log(res.status);
+            if (res.status == 201) {
+                getBookList();
+                //alert(res.msg);
+            } else {
+                return alert("添加图书失败");
+            }
+        })
+    }
     
 }
 

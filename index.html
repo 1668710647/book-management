@@ -31,7 +31,7 @@
 
 
 
-    <table>
+    <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th>id</th>
@@ -46,9 +46,10 @@
         </tbody>
     </table>
     <script>
-        getBookList();
-        $("body #btnGet").on("click",getBookList)
-        $("tbody").on("click",".deletebook",delBook)
+        getBookList();//打开网页自动获取列表
+        $("body #btnGet").on("click",getBookList)// 获取图书列表
+        $("tbody").on("click",".deletebook",delBook)//删除图书
+        $("body #btnAdd").on("click",addBook)//添加图书
     </script>
 </body>
 </html>
