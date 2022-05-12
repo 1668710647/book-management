@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="jquery.mini.js"></script>
+    <script src="index.js"></script>
+
+</head>
+<body>
+    <div class="add-box">
+        <div class="input-group">
+            <div class="input-group-addon">书名</div>
+            <input type="text" class="form-control" id="iptBookname" placeholder="请输入书名">
+        </div>
+        <div class="input-group">
+            <div class="input-group-addon">作者</div>
+            <input type="text" class="form-control" id="iptAuthor" placeholder="请输入作者">
+        </div>
+        <div class="input-group">
+            <div class="input-group-addon">出版社</div>
+            <input type="text" class="form-control" id="iptPublisher" placeholder="请输入出版社">
+        </div>
+
+        <button class="btn btn-primary" id="btnAdd">添加图书</button>
+        <button class="btn btn-primary" id="btnGet">刷新列表</button>
+    </div>
+
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>书名</th>
+                <th>作者</th>
+                <th>出版社</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="tb">
+
+        </tbody>
+    </table>
+    <script>
+        getBookList();
+        $("body #btnGet").on("click",getBookList)
+        $("tbody").on("click",".deletebook",delBook)
+    </script>
+</body>
+</html>

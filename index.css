@@ -1,0 +1,9 @@
+table,thead,tr,th,tbody,td {
+    border: 1px solid;
+}
+.add-box {
+    display: flex;
+}
+.input-group {
+    padding: 20px;
+}
